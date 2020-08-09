@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.nelioalves.cursomc.domain.enums.EstadoPagamento;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.JOINED)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type")
 public abstract class Pagamento implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -23,7 +23,7 @@ public abstract class Pagamento implements Serializable {
 	@Id
 	private Integer id;
 	private Integer estado;
-	
+
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="pedido_id")
@@ -31,7 +31,6 @@ public abstract class Pagamento implements Serializable {
 	private Pedido pedido;
 	
 	public Pagamento() {
-		
 	}
 
 	public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido) {
@@ -91,5 +90,5 @@ public abstract class Pagamento implements Serializable {
 	}
 	
 	
-
+	
 }
